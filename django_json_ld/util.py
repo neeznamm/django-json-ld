@@ -1,4 +1,4 @@
-from collections.abc import Mapping
+from collections.abc import Collection
 
 from django.utils.functional import Promise
 from django.utils.encoding import force_str
@@ -6,8 +6,8 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 
 def validate_sd(sd):
-    if sd and not isinstance(sd, Mapping):
-        err = 'Invalid type for provided structured data, expected "dict", got {}'.format(type(sd))
+    if sd and not isinstance(sd, Collection):
+        err = 'Invalid type for provided structured data, expected "Collection", got {}'.format(type(sd))
         return False, err
     return True, None
 
